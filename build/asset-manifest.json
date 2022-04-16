@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/static/css/main.52f5c43a.css",
+    "main.js": "/static/js/main.854e056a.js",
+    "static/js/787.61859f4a.chunk.js": "/static/js/787.61859f4a.chunk.js",
+    "static/media/TwoPhones.png": "/static/media/TwoPhones.c1188a2060885298f8c6.png",
+    "static/media/JessicaImage.png": "/static/media/JessicaImage.81a4601bcb0f50eae860.png",
+    "static/media/EmilyImage.png": "/static/media/EmilyImage.fd0882c5ab972637061c.png",
+    "static/media/KylieImage.png": "/static/media/KylieImage.8970ec7955d76c074d84.png",
+    "static/media/SafeCheckout.png": "/static/media/SafeCheckout.cf1c62267e42340653de.png",
+    "index.html": "/index.html",
+    "static/media/green-checkmark.svg": "/static/media/green-checkmark.fe6f876e1cbe0d368768.svg",
+    "static/media/accent.svg": "/static/media/accent.fc50129fc08452af3c7015adbe4ec2ee.svg",
+    "main.52f5c43a.css.map": "/static/css/main.52f5c43a.css.map",
+    "main.854e056a.js.map": "/static/js/main.854e056a.js.map",
+    "787.61859f4a.chunk.js.map": "/static/js/787.61859f4a.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.52f5c43a.css",
+    "static/js/main.854e056a.js"
+  ]
+}
