@@ -1,0 +1,47 @@
+.containerDesktop {
+  display: flex;
+  flex-direction: column;
+  width: 351px;
+}
+
+.containerMobile {
+  display: flex;
+  flex-direction: column;
+  order: 1;
+}
+
+.titleDesktop {
+  margin-bottom: 24px;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 32px;
+}
+
+.titleMobile {
+  margin-bottom: 24px;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 28px;
+}
+
+.ul {
+  margin: 0;
+  padding-left: 0px;
+  list-style-type: none;
+}
+
+/* http://jsfiddle.net/jdnuewt0/3/ */
+.list {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 20px;
+  padding-left: 38px;
+  color: #424242;
+  background-image: url("../assets/img/green-checkmark.svg");
+  background-repeat: no-repeat;
+  margin-bottom: 8px;
+}
+
+.list:last-child {
+  margin-bottom: 0px;
+}

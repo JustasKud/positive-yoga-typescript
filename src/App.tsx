@@ -1,26 +1,53 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState, useEffect } from "react";
 
-function App() {
+// Components
+import LogoBanner from "./components/LogoBanner";
+import StickyDiscount from "./components/StickyDiscount";
+import Title from "./components/Title";
+import Button from "./components/Button";
+
+// Screens
+import PlansAndProgramScreen from "./screens/PlansAndProgramScreen";
+import SuccessStoriesScreen from "./screens/SuccessStoriesScreen";
+import AppPositivesScreen from "./screens/AppPositivesScreen";
+import FAQScreen from "./screens/FAQScreen";
+
+// Style
+import "./App.css";
+import styles from "./App.module.css";
+
+const App: React.FC = () => {
+  // Initial window size check
+  const [isDesktop, setDesktop] = useState<boolean>(window.innerWidth > 1010);
+
+  // Update window size
+  const updateMedia = (): void => {
+    setDesktop(window.innerWidth > 1010);
+  };
+
+  // Check for window size changes
+  useEffect(() => {
+    window.addEventListener("resize", updateMedia);
+    return () => window.removeEventListener("resize", updateMedia);
+  });
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <StickyDiscount />
+      <LogoBanner isDesktop={isDesktop} />
+      <Title isDesktop={isDesktop} />
+      <PlansAndProgramScreen isDesktop={isDesktop} />
+      <SuccessStoriesScreen isDesktop={isDesktop} />
+      <Button text="Get my plan" isDesktop={isDesktop} />
+      <AppPositivesScreen isDesktop={isDesktop} />
+      <FAQScreen isDesktop={isDesktop} />
+      <Button text="Get my plan" isDesktop={isDesktop} />
+      <h2 className={isDesktop ? styles.titleDesktop : styles.titleMobile}>
+        Start your yoga program today!
+      </h2>
+      <PlansAndProgramScreen isDesktop={isDesktop} />
     </div>
   );
-}
+};
 
 export default App;

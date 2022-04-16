@@ -1,0 +1,39 @@
+.containerDesktop {
+  display: flex;
+  flex-direction: column;
+  width: 352px;
+}
+
+.containerMobile {
+  display: flex;
+  flex-direction: column;
+  width: calc(100vw - 32px);
+  margin: 0 16px;
+}
+
+.titleDesktop {
+  margin: 0 0 16px 0;
+  font-size: 24px;
+}
+
+.titleMobile {
+  margin: 0 0 16px 0;
+  font-size: 20px;
+}
+
+.orange {
+  color: #ff9b4e;
+}
+
+.image {
+  height: 54px;
+  width: auto;
+  margin-top: 8px;
+  align-self: center;
+}
+
+.caption {
+  text-align: center;
+  font-size: 12px;
+  margin: 8px 0;
+}

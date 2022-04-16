@@ -1,0 +1,25 @@
+.containerDesktop {
+  display: flex;
+  flex-direction: column;
+  width: 343px;
+}
+
+.containerMobile {
+  display: flex;
+  flex-direction: column;
+  width: calc(100vw - 32px);
+  margin: 0 16px;
+  margin-top: 40px;
+}
+
+.titleDesktop {
+  margin: 0;
+  margin-bottom: 48px;
+  font-size: 24px;
+}
+
+.titleMobile {
+  margin: 0;
+  margin-bottom: 24px;
+  font-size: 20px;
+}

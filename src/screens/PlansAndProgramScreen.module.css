@@ -1,0 +1,14 @@
+.containerDesktop {
+  display: flex;
+  flex-direction: row;
+  align-self: center;
+  justify-content: space-between;
+  width: 729px;
+  margin-bottom: 48px;
+}
+
+.containerMobile {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 40px;
+}

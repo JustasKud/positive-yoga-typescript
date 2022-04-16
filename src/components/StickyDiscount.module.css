@@ -1,0 +1,19 @@
+.container {
+  height: 56px;
+  position: sticky;
+  top: 0;
+  background: #90caf9;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  z-index: 1;
+}
+
+.icon {
+  padding: 0px 18px 0px 0px;
+}
+
+.semiBold {
+  font-weight: 600;
+}
