@@ -1,22 +1,40 @@
 import React from "react";
+import styled from "styled-components";
 
 // Components
 import PriceTagIcon from "../assets/PriceTagIcon";
 import Countdown from "./Countdown";
 
-// Styles
-import styles from "./StickyDiscount.module.css";
+const Container = styled.div`
+  height: 56px;
+  position: sticky;
+  top: 0;
+  background: #90caf9;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  z-index: 1;
+`;
+
+const Icon = styled.span`
+  padding: 0px 18px 0px 0px;
+`;
+
+const SemiBold = styled.span`
+  font-weight: 600;
+`;
 
 const StickyDiscount: React.FC = () => {
   return (
-    <div className={styles.container}>
-      <span className={styles.icon}>
+    <Container>
+      <Icon>
         <PriceTagIcon />
-      </span>
-      <span className={styles.semiBold}>50%</span>
+      </Icon>
+      <SemiBold>50%</SemiBold>
       <span>&nbsp;discount only valid for&nbsp;</span>
-      <Countdown style={styles.semiBold} targetDate="2022-04-17" />
-    </div>
+      <Countdown targetDate="2022-05-17" />
+    </Container>
   );
 };
 

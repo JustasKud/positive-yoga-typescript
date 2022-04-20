@@ -1,10 +1,8 @@
 import React from "react";
+import styled from "styled-components";
 
 // Components
 import ProgramDetails from "./ProgramDetails";
-
-// Style
-import styles from "./Program.module.css";
 
 // Data
 import { programContent } from "../DummyData";
@@ -13,14 +11,24 @@ interface ProgramProps {
   isDesktop: boolean;
 }
 
+const Container = styled.div<ProgramProps>`
+  display: flex;
+  flex-direction: column;
+  width: ${(props) => (props.isDesktop ? "343px" : "calc(100vw - 32px)")};
+  ${(props) => !props.isDesktop && "margin: 0 16px;"}
+  ${(props) => !props.isDesktop && "margin-top: 40px;"}
+`;
+
+const Title = styled.h3<ProgramProps>`
+  margin: 0;
+  margin-bottom: ${(props) => (props.isDesktop ? "48px" : "24px")};
+  font-size: ${(props) => (props.isDesktop ? "24px" : "20px")};
+`;
+
 const Program: React.FC<ProgramProps> = ({ isDesktop }) => {
   return (
-    <div
-      className={isDesktop ? styles.containerDesktop : styles.containerMobile}
-    >
-      <h3 className={isDesktop ? styles.titleDesktop : styles.titleMobile}>
-        What&apos;s in my program?
-      </h3>
+    <Container isDesktop={isDesktop}>
+      <Title isDesktop={isDesktop}>What&apos;s in my program?</Title>
       {programContent.map((content) => (
         <ProgramDetails
           image={content.image}
@@ -30,7 +38,7 @@ const Program: React.FC<ProgramProps> = ({ isDesktop }) => {
           isDesktop={isDesktop}
         />
       ))}
-    </div>
+    </Container>
   );
 };
 

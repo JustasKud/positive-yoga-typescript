@@ -1,15 +1,29 @@
 import React from "react";
-
-// Style
-import style from "./LogoBanner.module.css";
+import styled from "styled-components";
 
 interface LogoBannerProps {
   isDesktop: boolean;
 }
 
+interface StyleProps {
+  isDesktop: boolean;
+}
+
+const Div = styled.div<StyleProps>`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: ${(props) => (props.isDesktop ? "72px" : "56px")};
+  box-shadow: ${(props) =>
+    props.isDesktop
+      ? "0px 8px 24px rgba(0, 0, 0, 0.08)"
+      : "0px 1px 0px rgba(0, 0, 0, 0.08)"}; ;
+`;
+
 const LogoBanner: React.FC<LogoBannerProps> = ({ isDesktop }) => {
   return (
-    <div className={isDesktop ? style.container : style.containerMobile}>
+    <Div isDesktop={isDesktop}>
       <svg
         xmlns="http://www.w3.org/2000/svg"
         width="74"
@@ -76,7 +90,7 @@ const LogoBanner: React.FC<LogoBannerProps> = ({ isDesktop }) => {
           fill="#22222C"
         />
       </svg>
-    </div>
+    </Div>
   );
 };
 

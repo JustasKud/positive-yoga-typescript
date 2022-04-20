@@ -1,7 +1,5 @@
 import React, { ReactElement } from "react";
-
-// Style
-import styles from "./ProgramDetails.module.css";
+import styled from "styled-components";
 
 interface ProgramDetailsProps {
   image: ReactElement;
@@ -10,6 +8,38 @@ interface ProgramDetailsProps {
   isDesktop: boolean;
 }
 
+interface StyledProps {
+  isDesktop: boolean;
+}
+
+const Container = styled.div<StyledProps>`
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 10px;
+  ${(props) => !props.isDesktop && "width: calc(100vw - 32px);"}
+`;
+
+const Subcontainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin-left: 16px;
+`;
+
+const Title = styled.h5`
+  margin: 0;
+  font-size: 16px;
+  line-height: 24px;
+`;
+
+const Description = styled.p`
+  margin: 0;
+  font-size: 12px;
+  color: #22222c;
+  opacity: 0.64;
+  line-height: 18px;
+`;
+
 const ProgramDetails: React.FC<ProgramDetailsProps> = ({
   image,
   title,
@@ -17,15 +47,13 @@ const ProgramDetails: React.FC<ProgramDetailsProps> = ({
   isDesktop,
 }) => {
   return (
-    <div
-      className={isDesktop ? styles.containerDesktop : styles.containerMobile}
-    >
+    <Container isDesktop={isDesktop}>
       {image}
-      <div className={styles.subcontainer}>
-        <h5 className={styles.title}>{title}</h5>
-        <p className={styles.description}>{description}</p>
-      </div>
-    </div>
+      <Subcontainer>
+        <Title>{title}</Title>
+        <Description>{description}</Description>
+      </Subcontainer>
+    </Container>
   );
 };
 

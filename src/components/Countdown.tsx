@@ -1,19 +1,23 @@
 import React from "react";
+import styled from "styled-components";
 
 // Hooks
 import { useCountdown } from "../hooks/useCountdown";
 
 interface CountdownProps {
   targetDate: string;
-  style: string;
 }
 
-const Countdown: React.FC<CountdownProps> = ({ targetDate, style }) => {
+const SemiBold = styled.span`
+  font-weight: 600;
+`;
+
+const Countdown: React.FC<CountdownProps> = ({ targetDate }) => {
   const [hours, minutes, seconds] = useCountdown(targetDate);
   return (
-    <span className={style}>
+    <SemiBold>
       {hours}:{minutes}:{seconds}
-    </span>
+    </SemiBold>
   );
 };
 

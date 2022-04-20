@@ -1,6 +1,10 @@
 import React, { useState } from "react";
 import SwipeableViews from "react-swipeable-views";
-import MobileStepper from "@mui/material/MobileStepper";
+import styled from "styled-components";
+import { styled as muiStyled } from "@mui/material/styles";
+
+// Material UI
+import { MobileStepper as MuiMobileStepper } from "@mui/material";
 
 // Components
 import Review from "../components/Review";
@@ -8,12 +12,50 @@ import Review from "../components/Review";
 // Data
 import { clientReviews } from "../DummyData";
 
-// Style
-import styles from "./SuccessStoriesScreen.module.css";
-
 interface SuccessStoriesScreenProps {
   isDesktop: boolean;
 }
+
+const Container = styled.div<SuccessStoriesScreenProps>`
+  display: flex;
+  flex-direction: column;
+  width: ${(props) => (props.isDesktop ? "989px" : "calc(100% - 32px)")};
+  align-self: center;
+  ${(props) => !props.isDesktop && "margin: 0 16px;"}
+  margin-bottom: 40px;
+`;
+
+const Title = styled.h3<SuccessStoriesScreenProps>`
+  align-self: center;
+  font-size: ${(props) => (props.isDesktop ? "24px" : "20px")};
+  line-height: ${(props) => (props.isDesktop ? "32px" : "28px")};
+  margin: 0;
+  margin-bottom: 24px;
+`;
+
+const ReviewContainer = styled.div<SuccessStoriesScreenProps>`
+  display: flex;
+  flex-direction: ${(props) => (props.isDesktop ? "row" : "column")};
+  justify-content: space-between;
+`;
+
+const MobileStepper = muiStyled(MuiMobileStepper)`
+  max-width: 400px;
+  flex-grow: 1;
+  justify-content: center;
+  margin-top: 16px;
+
+  & .MuiMobileStepper-dot {
+    background-color: transparent;
+    border: 1px solid #22222C;
+    box-sizing: border-box;
+  }
+
+  & .MuiMobileStepper-dotActive {
+    background-color: #22222C;
+  }
+  
+`;
 
 const SuccessStoriesScreen: React.FC<SuccessStoriesScreenProps> = ({
   isDesktop,
@@ -25,36 +67,18 @@ const SuccessStoriesScreen: React.FC<SuccessStoriesScreenProps> = ({
   };
 
   const style = {
-    stepperStyle: {
-      maxWidth: 400,
-      flexGrow: 1,
-      justifyContent: "center",
-      marginTop: "16px",
-      ".MuiMobileStepper-dot": {
-        backgroundColor: "transparent",
-        border: "1px solid #22222C",
-        boxSizing: "border-box",
-      },
-      ".MuiMobileStepper-dotActive": {
-        backgroundColor: "#22222C",
-      },
-    },
     noOverflow: {
       overflow: "visible",
     },
   };
 
   return (
-    <div
-      className={isDesktop ? styles.containerDesktop : styles.containerMobile}
-    >
-      <h3 className={isDesktop ? styles.h3Desktop : styles.h3Mobile}>
-        Hear success stories from our clients
-      </h3>
+    <Container isDesktop={isDesktop}>
+      <Title isDesktop={isDesktop}>Hear success stories from our clients</Title>
       {/* https://mui.com/material-ui/react-stepper/#text-with-carousel-effect */}
       {/* https://github.com/oliviertassinari/react-swipeable-views */}
       {isDesktop ? (
-        <div className={styles.reviewContainer}>
+        <ReviewContainer isDesktop={isDesktop}>
           {clientReviews.map((client) => (
             <Review
               nameNAge={client.nameNAge}
@@ -65,15 +89,13 @@ const SuccessStoriesScreen: React.FC<SuccessStoriesScreenProps> = ({
               key={client.id.toString()}
             />
           ))}
-        </div>
+        </ReviewContainer>
       ) : (
-        <div className={styles.reviewContainerMobile}>
+        <ReviewContainer isDesktop={isDesktop}>
           <SwipeableViews
             index={activeStep}
             onChangeIndex={handleStepChange}
             slideStyle={style.noOverflow}
-            style={style.noOverflow}
-            containerStyle={style.noOverflow}
           >
             {clientReviews.map((client) => (
               <Review
@@ -88,16 +110,15 @@ const SuccessStoriesScreen: React.FC<SuccessStoriesScreenProps> = ({
           </SwipeableViews>
           <MobileStepper
             variant="dots"
-            steps={3}
+            steps={clientReviews.length}
             position="static"
             activeStep={activeStep}
-            sx={style.stepperStyle}
             nextButton={null}
             backButton={null}
           />
-        </div>
+        </ReviewContainer>
       )}
-    </div>
+    </Container>
   );
 };
 

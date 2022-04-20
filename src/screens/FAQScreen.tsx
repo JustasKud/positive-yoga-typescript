@@ -1,10 +1,8 @@
 import React, { useState, useEffect } from "react";
+import styled from "styled-components";
 
 // Components
 import FAQAccordion from "../components/FAQAccordion";
-
-// Style
-import styles from "./FAQScreen.module.css";
 
 // Data
 import { faqQuestions } from "../DummyData";
@@ -12,6 +10,24 @@ import { faqQuestions } from "../DummyData";
 interface FAQScreenProps {
   isDesktop: boolean;
 }
+
+const Container = styled.div<FAQScreenProps>`
+  display: flex;
+  flex-direction: column;
+  width: ${(props) => (props.isDesktop ? "736px" : "calc(100% - 32px)")};
+  ${(props) => !props.isDesktop && "margin: 0 16px;"}
+  margin-bottom: 40px;
+  ${(props) => props.isDesktop && "align-self: center;"}
+`;
+
+const Title = styled.h3<FAQScreenProps>`
+  font-weight: 700;
+  font-size: ${(props) => (props.isDesktop ? "24px" : "20px")};
+  line-height: ${(props) => (props.isDesktop ? "32px" : "28px")};
+  margin: 0;
+  margin-bottom: 8px;
+  ${(props) => props.isDesktop && "text-align: center;"}
+`;
 
 const FAQScreen: React.FC<FAQScreenProps> = ({ isDesktop }) => {
   const [expanded, setExpanded] = useState<Array<boolean>>([
@@ -37,12 +53,8 @@ const FAQScreen: React.FC<FAQScreenProps> = ({ isDesktop }) => {
     });
   };
   return (
-    <div
-      className={isDesktop ? styles.containerDesktop : styles.containerMobile}
-    >
-      <h3 className={isDesktop ? styles.titleDesktop : styles.titleMobile}>
-        Frequently Asked Questions
-      </h3>
+    <Container isDesktop={isDesktop}>
+      <Title isDesktop={isDesktop}>Frequently Asked Questions</Title>
       {faqQuestions.map((question) => (
         <FAQAccordion
           title={question.title}
@@ -53,7 +65,7 @@ const FAQScreen: React.FC<FAQScreenProps> = ({ isDesktop }) => {
           handleChange={handleChange}
         />
       ))}
-    </div>
+    </Container>
   );
 };
 

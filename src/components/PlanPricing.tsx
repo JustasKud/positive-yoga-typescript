@@ -1,7 +1,5 @@
 import React from "react";
-
-// Styles
-import styles from "./PlanPricing.module.css";
+import styled from "styled-components";
 
 // Svg
 import CheckedIcon from "../assets/CheckedIcon";
@@ -15,6 +13,95 @@ interface PlanPricingProps {
   onClick: () => void;
 }
 
+interface StyledProps {
+  selected: boolean;
+}
+
+const Container = styled.div<StyledProps>`
+  display: flex;
+  flex-direction: column;
+  padding: 16px;
+
+  width: 100%;
+  height: 120px;
+
+  background: #ffffff;
+  box-sizing: border-box;
+  border-radius: 16px;
+  margin-bottom: 8px;
+  border: ${(props) =>
+    props.selected ? "2px solid #ff9b4e" : "2px solid rgba(0, 0, 0, 0.08)"};
+`;
+
+const Title = styled.div`
+  font-style: normal;
+  font-weight: 600;
+  font-size: 15px;
+  line-height: 20px;
+
+  display: flex;
+  align-items: center;
+  letter-spacing: -0.4px;
+
+  color: #22222c;
+  margin: 0px 0px 4px 0px;
+`;
+
+const Promotion = styled.span`
+  margin-left: 8px;
+  padding: 3px 8px;
+  border-radius: 6px;
+  background: #ffe082;
+  font-weight: 700;
+`;
+
+const PriceContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+`;
+
+const Price = styled.span`
+  font-style: normal;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 32px;
+
+  color: #22222c;
+  margin: 4px 0px;
+`;
+
+const Month = styled.span`
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 23px;
+
+  display: flex;
+  align-items: flex-end;
+
+  color: #22222c;
+  margin: 4px 4px;
+`;
+
+const Billing = styled.div`
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 20px;
+
+  color: #22222c;
+`;
+
+const FullPrice = styled.span`
+  text-decoration: line-through;
+  margin-right: 8px;
+`;
+
+const DiscountPrice = styled.strong`
+  color: #ff9b4e;
+`;
+
 const PlanPricing: React.FC<PlanPricingProps> = ({
   months,
   price,
@@ -23,32 +110,26 @@ const PlanPricing: React.FC<PlanPricingProps> = ({
   onClick,
 }) => {
   return (
-    <div
-      className={`${styles.container} ${
-        selected ? styles.orangeBorder : styles.greyBorder
-      }`}
-      onClick={onClick}
-      aria-hidden="true"
-    >
-      <div className={styles.title}>
+    <Container selected={selected} onClick={onClick} aria-hidden="true">
+      <Title>
         <span>{months} month plan</span>
-        {promotion && <span className={styles.promotion}>Save 50%</span>}
-      </div>
-      <div className={styles.priceContainer}>
-        <span className={styles.price}>${price}</span>
-        <span className={styles.month}>/month</span>
+        {promotion && <Promotion>Save 50%</Promotion>}
+      </Title>
+      <PriceContainer>
+        <Price>${price}</Price>
+        <Month>/month</Month>
         {selected ? <CheckedIcon color="#FF9B4E" /> : <UncheckedIcon />}
-      </div>
+      </PriceContainer>
       {months > 1 ? (
-        <div className={styles.billing}>
-          <span className={styles.fullPrice}>${19.99 * months}</span>
-          <strong className={styles.orange}>${price * months}</strong>
+        <Billing>
+          <FullPrice>${19.99 * months}</FullPrice>
+          <DiscountPrice>${price * months}</DiscountPrice>
           <span>&nbsp;billed every {months} months</span>
-        </div>
+        </Billing>
       ) : (
-        <div className={styles.billing}>Billed monthly</div>
+        <Billing>Billed monthly</Billing>
       )}
-    </div>
+    </Container>
   );
 };
 
