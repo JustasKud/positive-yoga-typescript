@@ -61,8 +61,7 @@
         "namedComponents": "arrow-function",
         "unnamedComponents": "arrow-function"
       }
-    ],
-    "react/no-array-index-key": 0
+    ]
   },
   "settings": {
     "import/resolver": {

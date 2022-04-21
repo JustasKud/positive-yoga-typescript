@@ -1,10 +1,12 @@
-import React, { useState } from "react";
-import SwipeableViews from "react-swipeable-views";
+import React from "react";
 import styled from "styled-components";
-import { styled as muiStyled } from "@mui/material/styles";
-
-// Material UI
-import { MobileStepper as MuiMobileStepper } from "@mui/material";
+// https://github.com/import-js/eslint-plugin-import/issues/2266
+/* eslint-disable import/no-unresolved */
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Pagination } from "swiper";
+import "swiper/css";
+import "swiper/css/pagination";
+/* eslint-enable import/no-unresolved */
 
 // Components
 import Review from "../components/Review";
@@ -22,7 +24,7 @@ const Container = styled.div<SuccessStoriesScreenProps>`
   width: ${(props) => (props.isDesktop ? "989px" : "calc(100% - 32px)")};
   align-self: center;
   ${(props) => !props.isDesktop && "margin: 0 16px;"}
-  margin-bottom: 40px;
+  margin-bottom: ${(props) => (props.isDesktop ? "40px" : "70px")};
 `;
 
 const Title = styled.h3<SuccessStoriesScreenProps>`
@@ -33,50 +35,26 @@ const Title = styled.h3<SuccessStoriesScreenProps>`
   margin-bottom: 24px;
 `;
 
+// https://stackoverflow.com/a/69767073
 const ReviewContainer = styled.div<SuccessStoriesScreenProps>`
   display: flex;
   flex-direction: ${(props) => (props.isDesktop ? "row" : "column")};
   justify-content: space-between;
-`;
-
-const MobileStepper = muiStyled(MuiMobileStepper)`
-  max-width: 400px;
-  flex-grow: 1;
-  justify-content: center;
-  margin-top: 16px;
-
-  & .MuiMobileStepper-dot {
-    background-color: transparent;
-    border: 1px solid #22222C;
-    box-sizing: border-box;
-  }
-
-  & .MuiMobileStepper-dotActive {
-    background-color: #22222C;
-  }
-  
+  ${(props) => !props.isDesktop && "width: 100vw;"}
+  ${(props) => !props.isDesktop && "position: relative;"}
+  ${(props) => !props.isDesktop && "left: -16px;"}
+  ${(props) => !props.isDesktop && "overflow-y: visible;"}
+  ${(props) => !props.isDesktop && "overflow-x: clip;"}
 `;
 
 const SuccessStoriesScreen: React.FC<SuccessStoriesScreenProps> = ({
   isDesktop,
 }) => {
-  const [activeStep, setActiveStep] = useState(0);
-
-  const handleStepChange = (step: number): void => {
-    setActiveStep(step);
-  };
-
-  const style = {
-    noOverflow: {
-      overflow: "visible",
-    },
-  };
-
   return (
     <Container isDesktop={isDesktop}>
       <Title isDesktop={isDesktop}>Hear success stories from our clients</Title>
-      {/* https://mui.com/material-ui/react-stepper/#text-with-carousel-effect */}
-      {/* https://github.com/oliviertassinari/react-swipeable-views */}
+
+      {/* https://swiperjs.com/ */}
       {isDesktop ? (
         <ReviewContainer isDesktop={isDesktop}>
           {clientReviews.map((client) => (
@@ -92,30 +70,20 @@ const SuccessStoriesScreen: React.FC<SuccessStoriesScreenProps> = ({
         </ReviewContainer>
       ) : (
         <ReviewContainer isDesktop={isDesktop}>
-          <SwipeableViews
-            index={activeStep}
-            onChangeIndex={handleStepChange}
-            slideStyle={style.noOverflow}
-          >
+          <Swiper pagination modules={[Pagination]} className="mySwiper">
             {clientReviews.map((client) => (
-              <Review
-                nameNAge={client.nameNAge}
-                location={client.location}
-                rating={client.rating}
-                image={client.image}
-                content={client.content}
-                key={client.id.toString()}
-              />
+              <SwiperSlide key={client.id.toString()}>
+                <Review
+                  nameNAge={client.nameNAge}
+                  location={client.location}
+                  rating={client.rating}
+                  image={client.image}
+                  content={client.content}
+                  key={client.id.toString()}
+                />
+              </SwiperSlide>
             ))}
-          </SwipeableViews>
-          <MobileStepper
-            variant="dots"
-            steps={clientReviews.length}
-            position="static"
-            activeStep={activeStep}
-            nextButton={null}
-            backButton={null}
-          />
+          </Swiper>
         </ReviewContainer>
       )}
     </Container>

@@ -14,7 +14,7 @@ const Container = styled.div`
   justify-content: center;
   align-items: center;
   color: white;
-  z-index: 1;
+  z-index: 2;
 `;
 
 const Icon = styled.span`
