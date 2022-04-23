@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/positve-yoga-typescipt/static/css/main.cd32a139.css",
-    "main.js": "/positve-yoga-typescipt/static/js/main.de19238b.js",
+    "main.css": "/positve-yoga-typescipt/static/css/main.73ddcc87.css",
+    "main.js": "/positve-yoga-typescipt/static/js/main.fca2e69c.js",
     "static/js/787.61859f4a.chunk.js": "/positve-yoga-typescipt/static/js/787.61859f4a.chunk.js",
     "static/media/TwoPhones.png": "/positve-yoga-typescipt/static/media/TwoPhones.c1188a2060885298f8c6.png",
     "static/media/JessicaImage.png": "/positve-yoga-typescipt/static/media/JessicaImage.81a4601bcb0f50eae860.png",
@@ -11,12 +11,12 @@
     "index.html": "/positve-yoga-typescipt/index.html",
     "static/media/green-checkmark.svg": "/positve-yoga-typescipt/static/media/green-checkmark.fe6f876e1cbe0d368768c4d117139889.svg",
     "static/media/accent.svg": "/positve-yoga-typescipt/static/media/accent.fc50129fc08452af3c7015adbe4ec2ee.svg",
-    "main.cd32a139.css.map": "/positve-yoga-typescipt/static/css/main.cd32a139.css.map",
-    "main.de19238b.js.map": "/positve-yoga-typescipt/static/js/main.de19238b.js.map",
+    "main.73ddcc87.css.map": "/positve-yoga-typescipt/static/css/main.73ddcc87.css.map",
+    "main.fca2e69c.js.map": "/positve-yoga-typescipt/static/js/main.fca2e69c.js.map",
     "787.61859f4a.chunk.js.map": "/positve-yoga-typescipt/static/js/787.61859f4a.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.cd32a139.css",
-    "static/js/main.de19238b.js"
+    "static/css/main.73ddcc87.css",
+    "static/js/main.fca2e69c.js"
   ]
 }
