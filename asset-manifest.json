@@ -1,22 +1,22 @@
 {
   "files": {
-    "main.css": "/positve-yoga-typescipt/static/css/main.73ddcc87.css",
-    "main.js": "/positve-yoga-typescipt/static/js/main.fca2e69c.js",
-    "static/js/787.61859f4a.chunk.js": "/positve-yoga-typescipt/static/js/787.61859f4a.chunk.js",
-    "static/media/TwoPhones.png": "/positve-yoga-typescipt/static/media/TwoPhones.c1188a2060885298f8c6.png",
-    "static/media/JessicaImage.png": "/positve-yoga-typescipt/static/media/JessicaImage.81a4601bcb0f50eae860.png",
-    "static/media/EmilyImage.png": "/positve-yoga-typescipt/static/media/EmilyImage.fd0882c5ab972637061c.png",
-    "static/media/KylieImage.png": "/positve-yoga-typescipt/static/media/KylieImage.8970ec7955d76c074d84.png",
-    "static/media/SafeCheckout.png": "/positve-yoga-typescipt/static/media/SafeCheckout.cf1c62267e42340653de.png",
-    "index.html": "/positve-yoga-typescipt/index.html",
-    "static/media/green-checkmark.svg": "/positve-yoga-typescipt/static/media/green-checkmark.fe6f876e1cbe0d368768c4d117139889.svg",
-    "static/media/accent.svg": "/positve-yoga-typescipt/static/media/accent.fc50129fc08452af3c7015adbe4ec2ee.svg",
-    "main.73ddcc87.css.map": "/positve-yoga-typescipt/static/css/main.73ddcc87.css.map",
-    "main.fca2e69c.js.map": "/positve-yoga-typescipt/static/js/main.fca2e69c.js.map",
-    "787.61859f4a.chunk.js.map": "/positve-yoga-typescipt/static/js/787.61859f4a.chunk.js.map"
+    "main.css": "/positve-yoga-typescript/static/css/main.73ddcc87.css",
+    "main.js": "/positve-yoga-typescript/static/js/main.499727d4.js",
+    "static/js/787.61859f4a.chunk.js": "/positve-yoga-typescript/static/js/787.61859f4a.chunk.js",
+    "static/media/TwoPhones.png": "/positve-yoga-typescript/static/media/TwoPhones.c1188a2060885298f8c6.png",
+    "static/media/JessicaImage.png": "/positve-yoga-typescript/static/media/JessicaImage.81a4601bcb0f50eae860.png",
+    "static/media/EmilyImage.png": "/positve-yoga-typescript/static/media/EmilyImage.fd0882c5ab972637061c.png",
+    "static/media/KylieImage.png": "/positve-yoga-typescript/static/media/KylieImage.8970ec7955d76c074d84.png",
+    "static/media/SafeCheckout.png": "/positve-yoga-typescript/static/media/SafeCheckout.cf1c62267e42340653de.png",
+    "index.html": "/positve-yoga-typescript/index.html",
+    "static/media/green-checkmark.svg": "/positve-yoga-typescript/static/media/green-checkmark.fe6f876e1cbe0d368768c4d117139889.svg",
+    "static/media/accent.svg": "/positve-yoga-typescript/static/media/accent.fc50129fc08452af3c7015adbe4ec2ee.svg",
+    "main.73ddcc87.css.map": "/positve-yoga-typescript/static/css/main.73ddcc87.css.map",
+    "main.499727d4.js.map": "/positve-yoga-typescript/static/js/main.499727d4.js.map",
+    "787.61859f4a.chunk.js.map": "/positve-yoga-typescript/static/js/787.61859f4a.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.73ddcc87.css",
-    "static/js/main.fca2e69c.js"
+    "static/js/main.499727d4.js"
   ]
 }
