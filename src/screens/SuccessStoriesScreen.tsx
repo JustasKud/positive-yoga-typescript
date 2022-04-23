@@ -65,6 +65,7 @@ const SuccessStoriesScreen: React.FC<SuccessStoriesScreenProps> = ({
               image={client.image}
               content={client.content}
               key={client.id.toString()}
+              isDesktop={isDesktop}
             />
           ))}
         </ReviewContainer>
@@ -80,6 +81,7 @@ const SuccessStoriesScreen: React.FC<SuccessStoriesScreenProps> = ({
                   image={client.image}
                   content={client.content}
                   key={client.id.toString()}
+                  isDesktop={isDesktop}
                 />
               </SwiperSlide>
             ))}

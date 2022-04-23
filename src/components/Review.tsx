@@ -10,14 +10,19 @@ interface ReviewProps {
   rating: ReactElement;
   image: string;
   content: string;
+  isDesktop: boolean;
 }
 
-const Container = styled.div`
+interface StyleProps {
+  isDesktop: boolean;
+}
+
+const Container = styled.div<StyleProps>`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   width: calc(319px - 32px);
-  height: calc(607px - 32px);
+  ${(props) => !props.isDesktop && "height: 100%;"}
   padding: 16px;
   box-shadow: 0px 16px 32px rgba(57, 53, 60, 0.08);
   border-radius: 16px;
@@ -55,9 +60,10 @@ const Review: React.FC<ReviewProps> = ({
   rating,
   image,
   content,
+  isDesktop,
 }) => {
   return (
-    <Container>
+    <Container isDesktop={isDesktop}>
       <Name>{nameNAge}</Name>
       <Location>{location}</Location>
       <Rating>{rating}</Rating>
