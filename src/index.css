@@ -34,6 +34,7 @@ code {
   -ms-flex-align: center;
   -webkit-align-items: center;
   align-items: center;
+  /* https://github.com/nolimits4web/swiper/issues/2372 */
   height: auto !important;
 }
 
